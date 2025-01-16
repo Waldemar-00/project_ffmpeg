@@ -1,0 +1,26 @@
+{
+  "name": "ts_ffmpeg",
+  "version": "1.0.0",
+  "description": "app for work with the FFmpeg",
+  "keywords": [
+    "ffmpeg"
+  ],
+  "homepage": "https://github.com/Waldemar-00/project_ffmpeg#readme",
+  "bugs": {
+    "url": "https://github.com/Waldemar-00/project_ffmpeg/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Waldemar-00/project_ffmpeg.git"
+  },
+  "license": "ISC",
+  "author": "uladzimir",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "inquirer": "^12.3.2"
+  }
+}
