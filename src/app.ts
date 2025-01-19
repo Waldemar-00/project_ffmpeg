@@ -1,10 +1,11 @@
 import { PromptService } from "./core/prompt/prompt.service"
+import { FFmpegExecotur } from './commands/ffmpeg/ffmpeg.executor'
+import { ConsoleLogger } from './core/console/console.logger'
 export class App
 {
     async run ()
     {
-        const result = await ( new PromptService().inquirer( 'It is a Number', 'number' ) )
-        console.log( result )
+        new FFmpegExecotur( ConsoleLogger.getConsoleLogger() ).execute()
     }
 }
 const app = new App()

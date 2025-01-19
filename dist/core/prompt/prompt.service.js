@@ -16,7 +16,7 @@ exports.PromptService = void 0;
 // import { input } from '@inquirer/prompts'
 const inquirer_1 = __importDefault(require("inquirer"));
 class PromptService {
-    input(message, type) {
+    inquirer(message, type) {
         return __awaiter(this, void 0, void 0, function* () {
             const { result } = yield inquirer_1.default.prompt([
                 {

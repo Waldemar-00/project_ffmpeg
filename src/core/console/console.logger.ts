@@ -1,4 +1,4 @@
-import { ILogger } from "../handlers/steam.logger.interface"
+import { ILogger } from "../handlers/stream.logger.interface"
 
 export class ConsoleLogger implements ILogger
 {
