@@ -10,14 +10,16 @@ import { SteramHandler } from '../../core/handlers/stream.handler'
 
 export class FFmpegExecotur extends AbstractExecutor<IFFmpegInput>
 {
-    #fileService: FileService = new FileService()
     #promptService: PromptService = new PromptService()
+    #fileService: FileService = new FileService()
+
     constructor ( logger: ILogger )
     {
         super( logger )
     }
     protected async prompt (): Promise<IFFmpegInput>
     {
+        //* new PromptService() with inquirer library
         const width = await this.#promptService.inquirer<number>( "Width", 'number' )
         const height = await this.#promptService.inquirer<number>( "Height", 'number' )
         const inputPath = await this.#promptService.inquirer<string>( "Path", "input" )
@@ -26,7 +28,9 @@ export class FFmpegExecotur extends AbstractExecutor<IFFmpegInput>
     }
     protected build ( { width, height, inputPath, name }: IFFmpegInput ): ICommandExecFFmpeg
     {
+        //* build path
         const outputPath = this.#fileService.buildFilePath( name, 'mp4', inputPath )
+        // * create options
         const args = new FFmpegBuilder()
             .input( inputPath )
             .setVideoSize( width, height )
@@ -36,7 +40,7 @@ export class FFmpegExecotur extends AbstractExecutor<IFFmpegInput>
     protected ourSpawn ( { command, args, outputPath }: ICommandExecFFmpeg ): ChildProcessWithoutNullStreams
     {
         this.#fileService.deleteFileIfExists( outputPath )
-        return spawn( command, args)
+        return spawn( command, args )
     }
     protected proccess ( stream: ChildProcessWithoutNullStreams, logger: ILogger ): void
     {

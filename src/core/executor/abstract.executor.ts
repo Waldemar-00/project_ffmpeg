@@ -8,7 +8,7 @@ export abstract class AbstractExecutor<IInput>
 
     async execute ()
     {
-        const prompt = await this.prompt()
+        const prompt = await this.prompt() //* new PromptService() with inquirer library
         const build =  this.build( prompt )
         const spawn = this.ourSpawn( build )
         this.proccess( spawn, this.logger )

@@ -10,7 +10,7 @@ export class ConsoleLogger implements ILogger
     }
     log ( message: string )
     {
-        console.log( message )
+        console.log( message ) //???????????? NOT WORK
     }
     error ( error: Error )
     {

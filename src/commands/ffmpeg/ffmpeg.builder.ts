@@ -8,19 +8,20 @@ export class FFmpegBuilder
         this.inputPath = inputPath
         return this
     }
-    output ( outputPath: string ): string[]
-    {
-        if ( !this.inputPath ) throw new Error( 'No input path specified' )
-        const args: string[] = [ '-i', this.inputPath ]
-        this.options.forEach( ( value, index ) => args.push( index, value ) )
-        args.push( outputPath )
-        return args
-    }
 
     setVideoSize (width: number, height: number): this
     {
         this.options.set( '-s', `${ width }x${ height }` )
         return this
+    }
+     output ( outputPath: string ): string[]
+    {
+        if ( !this.inputPath ) throw new Error( 'No input path specified' )
+
+        const args: string[] = [ '-i', this.inputPath ]
+        this.options.forEach( ( value, index ) => args.push( index, value ) )
+        args.push( outputPath )
+        return args
     }
 }
 
